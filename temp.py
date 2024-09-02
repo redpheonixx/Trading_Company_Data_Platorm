@@ -13,8 +13,8 @@ class PushCsvData:
         print(response)
 
     def pull(self):
-        result=self.client.get_object(Bucket='csvdata-ldzone', Key='data_01.csv')
-        initial_df = pd.read_csv(result['Body'])
+        result=self.client.get_object(Bucket='csvdata-ldzone', key='data_01.csv')
+        initial_df = pd.read_csv(obj['Body'])
         print(initial_df)
 
 new_obj=PushCsvData()

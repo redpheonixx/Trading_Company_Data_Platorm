@@ -6,10 +6,11 @@ import pandas as pd
 class PushandPullCsvData:
     def __init__(self):
         self.client=boto3.client("s3", endpoint_url='http://localhost:4566')
+        cur_time=datetime.datetime.now().isoformat()
     
-    def push(self):
-        file_path=r"C:\Users\singsina\Documents\DE\Trading_Platform_Data_Platorm\Data\trade_data.csv"
-        response = self.client.upload_file(file_path, 'csvdata-ldzone', 'data_01.csv')
+    def push(self, file_path, fileName):
+        s3Key= fileName+self.cur_time
+        response = self.client.upload_file(file_path, 'csvdata-ldzone', s3Key)
         print(response)
 
     def pull(self):
@@ -17,6 +18,5 @@ class PushandPullCsvData:
         initial_df = pd.read_csv(result['Body'])
         print(initial_df)
 
-new_obj=PushandPullCsvData()
-new_obj.pull()
+
 
