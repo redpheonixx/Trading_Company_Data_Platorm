@@ -3,7 +3,7 @@ import requests
 import boto3
 import pandas as pd
 
-class PushandPullCsvData:
+class PushCsvData:
     def __init__(self):
         self.client=boto3.client("s3", endpoint_url='http://localhost:4566')
     
@@ -17,6 +17,6 @@ class PushandPullCsvData:
         initial_df = pd.read_csv(result['Body'])
         print(initial_df)
 
-new_obj=PushandPullCsvData()
+new_obj=PushCsvData()
 new_obj.pull()
 
