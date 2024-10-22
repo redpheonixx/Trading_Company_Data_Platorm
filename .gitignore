@@ -1,1 +1,2 @@
- excludesfile = ../Docker_Compose_Files/volume/*
+excludesfile = ../Docker_Compose_Files/volume/*
+excludesfile = ../Docker_Compose_Files/warehouse/*
